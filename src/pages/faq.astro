@@ -7,14 +7,24 @@ import FeaturesList from "@components/Astro/FeaturesList.astro";
 
 const faq = [
 	{
-		title: "Where can I find the documentation?",
+		title: "Is TypeScript required?",
 		description:
-			"All the components are documented in their own files, they include JSDoc comments and type hinting. All other docs are linked in the navigation at the top of the page.",
+			"Astro uses several features of TypeScript. However, you can remove the vast majority of type checking by setting `extends: 'astro/tsconfigs/base'` in your tsconfig.json.",
 	},
 	{
-		title: "Do you have an example of the blog pages?",
+		title: "I'd like to contribute. How can I help?",
 		description:
-			"The documentation linked above are the 'blog' for this site. Naming the blog, setting URLs, is as easy as changing a folder name and updating one line in the config file.",
+			"Currently, I am not accepting PRs. However, you can help by reporting bugs and suggesting features on GitHub. I plan to accept contributions in the very near future.",
+	},
+	{
+		title: "What are the future plans for Alkaline?",
+		description:
+			"Post-launch the focus is on bug fixes, stability, and feature requests. After that I hope to build Alkaline for SvelteKit. I may also do that publicly on Twitch.",
+	},
+	{
+		title: "I have a question that isn't answered here.",
+		description:
+			"Soon I will create a twitter account for Alkaline as well as setting up an email address specifically for questions. For now, you can reach me via email at jared@jaredmakes.com",
 	},
 ];
 ---
@@ -25,8 +35,8 @@ const faq = [
 		<Icon name="ri:questionnaire-line" size="1.5em" class="opacity-80" />
 		Looking for the <Link href="/features" text="Feature List?" />
 	</p>
-	<section>
-		<article>
+	<section class="max-w-6xl mx-auto p-6 w-full mt-0">
+		<article class="md:mx-12 lg:mx-auto w-full max-w-2xl">
 			<FeaturesList features={faq} />
 		</article>
 	</section>

@@ -1,6 +1,6 @@
 import rss from "@astrojs/rss";
 import { getCollection } from "astro:content";
-import { SITE, DOCS } from "@config";
+import { SITE, BLOG } from "@config";
 import { COLLECTION_NAMES_LIST } from "../alkaline.config";
 
 export async function GET(context) {
@@ -30,9 +30,9 @@ export async function GET(context) {
 
 	return rss({
 		title: SITE.title,
-		description: DOCS.description || SITE.description,
+		description: BLOG.description || SITE.description,
 		site: context.site,
 		items: items,
-		customData: `<language>${SITE.language || "en-us"}</language>`,
+		customData: `<language>${SITE.locale || "en-us"}</language>`,
 	});
 }

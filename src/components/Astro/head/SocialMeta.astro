@@ -6,7 +6,7 @@
  * - title: string - Page title
  * - description: string - Page description
  * - type: "website" | "article" | "profile" | "book" | "product" - Content type
- * - image: string - Social share image URL
+ * - ogImage: string - Social share image URL
  * - canonicalURL: string - Canonical URL for SEO
  * - platform: string - Platform/site name
  * - locale: string - Content locale (default: "en_US")
@@ -22,7 +22,7 @@
  *   title="My Page Title"
  *   description="Page description for social sharing"
  *   type="article"
- *   image="/social-share.jpg"
+ *   ogImage="/og-image.webp"
  *   author="John Doe"
  *   publishedTime="2024-03-20"
  *   platform="My Website"
@@ -43,11 +43,12 @@ interface Props {
 	title?: string;
 	description?: string;
 	type?: "website" | "article" | "profile" | "book" | "product";
-	image?: string;
+	ogImage?: string;
 	canonicalURL?: string;
 	platform?: string;
 	locale?: string;
 	logoSrc?: string;
+	productImageSrc?: string;
 	faviconSrc?: string;
 	author?: string;
 	publishedTime?: string;
@@ -61,13 +62,14 @@ const {
 	title,
 	description,
 	type = "website",
-	image,
+	ogImage,
 	canonicalURL = Astro.url.href,
 	platform,
 	locale = "en_US",
 	author,
 	logoSrc,
 	faviconSrc,
+	productImageSrc,
 	publishedTime,
 	modifiedTime,
 	keywords,
@@ -75,8 +77,7 @@ const {
 	twitterCardType = "summary_large_image",
 } = Astro.props;
 
-// Ensure image is a full URL
-const imageUrl = new URL(image ?? "", Astro.site);
+// TODO: review the images on this page... Seems not correct.
 
 // JSON-LD Data
 let jsonLdData;
@@ -87,7 +88,7 @@ switch (type) {
 			"@context": "https://schema.org",
 			"@type": "Article",
 			headline: title,
-			image: imageUrl.href,
+			image: new URL(ogImage ?? "", Astro.site).href,
 			author: {
 				"@type": "Person",
 				name: author,
@@ -98,7 +99,7 @@ switch (type) {
 				...(logoSrc && {
 					logo: {
 						"@type": "ImageObject",
-						url: new URL(logoSrc, Astro.site),
+						url: new URL(logoSrc, Astro.site).href,
 					},
 				}),
 			},
@@ -116,7 +117,7 @@ switch (type) {
 			"@context": "https://schema.org",
 			"@type": "Product",
 			name: title,
-			image: imageUrl.href,
+			image: new URL(productImageSrc ?? "", Astro.site).href,
 			description: description,
 			// Add more product-specific properties here if needed
 		};
@@ -151,10 +152,12 @@ Object.entries(jsonLdData).forEach(([key, value]) => {
 <meta property="og:url" content={canonicalURL} />
 <meta property="og:title" content={title} />
 <meta property="og:description" content={description} />
-<meta property="og:image" content={imageUrl} />
+<meta property="og:image" content={new URL(ogImage ?? "", Astro.site).href} />
 <meta property="og:image:alt" content={title} />
 <meta property="og:site_name" content={platform} />
 <meta property="og:locale" content={locale} />
+<meta property="og:logo" content={new URL(logoSrc ?? "", Astro.site).href} />
+
 {
 	publishedTime && (
 		<meta property="article:published_time" content={publishedTime} />
@@ -165,15 +168,22 @@ Object.entries(jsonLdData).forEach(([key, value]) => {
 		<meta property="article:modified_time" content={modifiedTime} />
 	)
 }
-{keywords && keywords.map((tag) => <meta property="article:tag" content={tag} />)}
+{
+	keywords &&
+		keywords.map((tag) => <meta property="article:tag" content={tag} />)
+}
 {section && <meta property="article:section" content={section} />}
 
 <!-- Twitter -->
 <meta name="twitter:card" content={twitterCardType} />
 <meta name="twitter:title" content={title} />
 <meta name="twitter:description" content={description} />
-<meta name="twitter:image" content={imageUrl} />
+<meta name="twitter:image" content={new URL(ogImage ?? "", Astro.site).href} />
 <meta name="twitter:image:alt" content={title} />
 
 <!-- JSON-LD -->
-<script is:inline type="application/ld+json" set:html={JSON.stringify(jsonLdData)} />
+<script
+	is:inline
+	type="application/ld+json"
+	set:html={JSON.stringify(jsonLdData)}
+/>

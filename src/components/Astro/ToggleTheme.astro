@@ -29,18 +29,18 @@ let selectedTheme = themeNames[0];
 
 <div class:list={["relative inline-block mx-0 px-0", className]}>
 	<div
-		class:list={["bg-theme-secondary text-theme-secondary text-lg tracking-widest min-w-32 border border-theme-secondary shadow shadow-theme-primary m-0", options]}
+		class:list={["bg-theme-secondary text-theme-secondary text-sm tracking-widest min-w-32 border border-theme-secondary shadow shadow-theme-primary m-0", options]}
 	>
 		<Icon
 			name="ri:paint-fill"
 			size="16"
-			class="absolute m-1 ml-2"
+			class="absolute left-3"
 		/>
 		<button
 			id="theme-button"
 			aria-haspopup="listbox"
 			aria-expanded="false"
-			class="w-full text-left pl-8 pr-2 py-0 h6 tracking-widest"
+			class="w-full text-left pl-8 pr-2 py-0 uppercase"
 		>
 			{selectedTheme.replace("theme-", "")}
 		</button>
@@ -48,14 +48,14 @@ let selectedTheme = themeNames[0];
 			id="theme-dropdown"
 			role="listbox"
 			tabindex="-1"
-			class:list={["absolute right-0 top-10 z-10 bg-theme-primary text-theme-primary border border-theme-primary m-0 shadow-md shadow-theme-grey p-1 min-w-full w-max opacity-0 invisible -translate-y-2 transition-all duration-150 ease-in-out", options]}
+			class:list={["absolute right-0 top-12 z-10 bg-theme-primary text-theme-primary border border-theme-primary m-0 shadow-md shadow-theme-grey p-1 min-w-full w-max opacity-0 invisible -translate-y-2 transition-all duration-150 ease-in-out", options]}
 		>
 			{
 				themeNames.map((name) => (
 					<li
 						role="option"
 						tabindex="0"
-						class="theme-option hover:text-theme-secondary hover:bg-theme-secondary cursor-pointer h6 mx-0 py-1 px-2 first:pt-2 last:pb-2 text-left pl-4"
+						class="theme-option hover:text-theme-secondary hover:bg-theme-secondary cursor-pointer uppercase mx-0 py-2 px-2 first:pt-2 last:pb-2 text-left pl-4"
 						data-theme={name}
 					>
 						<span class="text-sm block pl-0 pr-2 whitespace-nowrap overflow-hidden text-ellipsis">

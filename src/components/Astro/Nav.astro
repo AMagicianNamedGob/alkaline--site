@@ -39,6 +39,8 @@ interface Props {
 }
 
 const { links = [], class: className } = Astro.props;
+
+const pathname = new URL(Astro.request.url).pathname;
 ---
 
 <nav
@@ -49,16 +51,24 @@ const { links = [], class: className } = Astro.props;
 	<ul class="inline-flex flex-wrap mb-2 sm:mb-0 sm:mr-6">
 		{
 			links.map((obj) => (
-				<li class=" mb-2 py-0 pr-4 first:pl-0 sm:mb-0 md:pr-6">
-					<Link href={obj.href} class="text-lg px-2 py-0 m-0 first:pl-0" text={obj.text} />
+				<li class=" mb-2 py-0 pr-4 first:pl-1 sm:mb-0 md:pr-5">
+					<Link
+						href={obj.href}
+						class:list={["text-lg", { active: obj.href === pathname }]}
+						text={obj.text}
+					/>
 				</li>
 			))
 		}
 	</ul>
-	<ToggleTheme class="ml-auto" />
+	<ToggleTheme class="ml-auto pr-1" />
 </nav>
 
 <style>
+	nav a.active {
+		font-weight: 700;
+	}
+
 	@media screen and (width >= 1670px) {
 		#main-navigation {
 			padding-left: 0;

@@ -36,28 +36,31 @@ interface Props {
 		title: string;
 		description?: string;
 	}[];
-	class?: string |  undefined;
+	class?: string | undefined;
 }
 
 const { features, class: className } = Astro.props;
 ---
 
-<ul class:list={["space-y-4", className]}>
+<ul class:list={[className]}>
 	{
 		features.map((feature) => (
-			<li class="">
-				<div class="absolute inset-0 bg-theme-accent opacity-10 scale-x-0 transition-transform duration-300 origin-left" />
-				<div class="relative z-1">
-					<h3 class="text-xl font-mono font-semibold mb-1 text-theme-accent build-in">
-						{feature.title}
-					</h3>
-					{feature.description && (
-						<p class="ml-4 italic text-theme-primary/80 fade-in">
-							{feature.description}
-						</p>
-					)}
-				</div>
+			<li class="relative mb-8">
+				<h3 class="text-xl font-mono font-semibold text-theme-accent build-in mb-0">
+					{feature.title}
+				</h3>
+				{feature.description && (
+					<p class="ml-4 italic text-theme-primary fade-in mt-2 text-lg">
+						{feature.description}
+					</p>
+				)}
 			</li>
 		))
 	}
 </ul>
+
+<style>
+.fade-in {
+animation-delay: 0.25s;
+}
+</style>

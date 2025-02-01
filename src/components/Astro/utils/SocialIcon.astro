@@ -35,7 +35,7 @@ interface Props {
 	size?: number;
 	fill?: boolean;
 	iconPrefix?: string; //  i.e. "ri"
-	class?: string |  undefined;
+	class?: string | undefined;
 }
 
 const {
@@ -72,13 +72,12 @@ const iconName = buildIconName(platform, fill, iconPrefix);
 
 <a
 	href={platform === "email" ? `mailto:${url}` : url}
-	target="_blank"
 	class="hover:text-theme-accent no-underline m-0 p-0"
 >
 	<Icon
 		name={iconName}
 		size={size}
 		title={userName || platform}
-		class:list={["m-1", { className }]}
+		class:list={["mt-1 mr-2", className]}
 	/>
 </a>

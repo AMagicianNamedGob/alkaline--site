@@ -1,6 +1,6 @@
-import { Platforms } from "./Types/types"; // as const
+import { Platforms } from "./Types/types";
 
-import type { Site, Author, Socials, NavEntry, Docs } from "./Types/types";
+import type { Site, Author, Socials, NavEntry, Blog } from "./Types/types";
 
 /**
  * @description This file contains the configuration for the Alkaline theme.
@@ -15,7 +15,7 @@ import type { Site, Author, Socials, NavEntry, Docs } from "./Types/types";
 export const socials: Socials[] = [
 	{
 		platform: "email",
-		url: "jared@jaredmakes.com",
+		url: "alkaline@jaredtruscott.com",
 	},
 	{
 		platform: "github",
@@ -25,6 +25,14 @@ export const socials: Socials[] = [
 		platform: "web",
 		url: "https://jaredmakes.com",
 	},
+	{
+		platform: "bluesky",
+		url: "https://bsky.app/profile/trujared.bsky.social",
+	},
+	{
+		platform: "rss",
+		url: "/feed.xml",
+	}
 ];
 
 // use in development to easily see all author socials at once, comment out in production
@@ -56,15 +64,16 @@ export const SITE: Site = {
 	showTitleBackground: true,
 	faviconSrc: "/favicon.png", // in public directory
 	url: "https://alkaline-theme.xyz",
+	ogImage: "/og-image.webp", // in public directory
 	author: AUTHORS[0].name, // Made with ❤️ by {your-name}
 	description: "A Neutral Base For Your Next Creation",
 	keywords: ["astro", "theme", "blog"],
 	disableIndexing: false, // true for no indexing
 	socials: socials,
 	locale: "en_US",
-	postsPerPage: 5, // TODO: change this to a non-testing number //
+	postsPerPage: 5,
 	shikiConfig: {
-		theme: "tokyo-night",
+		theme: "github-dark",
 	},
 	// * edit or remove ./Types/google-fonts.d.ts to add/remove font types * //
 	fonts: [
@@ -76,7 +85,7 @@ export const SITE: Site = {
 		{
 			typeface: "sans",
 			fontFamily: "Roboto",
-			fontWeights: [400, 500, 600, 700],
+			fontWeights: ["100..900"],
 			includeItalic: true,
 		},
 		{
@@ -85,7 +94,7 @@ export const SITE: Site = {
 			fontWeights: [400, 500, 700],
 		},
 	],
-	// Trouble with the fonts? It's likely because a font family name isn't EXACTLY correct or the font weights you're trying to fetch are not supported for that font family
+	// Trouble with the fonts? It's likely because a font family name isn't EXACTLY correct or the font weights you're trying to fetch are not supported for that font family. For example, setting Roboto with fontWeights: ["400...700"] will not work because Roboto only supports 400, 500, and 700.
 };
 
 export const NAVIGATION: NavEntry[] = [
@@ -102,8 +111,8 @@ export const NAVIGATION: NavEntry[] = [
 		text: "Features",
 	},
 	{
-		href: "/docs",
-		text: "Docs",
+		href: "/blog",
+		text: "Blog",
 	},
 	{
 		href: "/tags",
@@ -119,7 +128,7 @@ export const NAVIGATION: NavEntry[] = [
 	},
 ];
 
-export const DOCS: Docs = {
+export const BLOG: Blog = {
 	title: "Alkaline Docs",
 	author: AUTHORS[0].name,
 	description: SITE.description || "",
@@ -128,4 +137,4 @@ export const DOCS: Docs = {
 };
 
 // export the name(s) of the collections as a list - must match the name of the collection in the content directory
-export const COLLECTION_NAMES_LIST = ["docs"] as const;
+export const COLLECTION_NAMES_LIST = ["blog"] as const;

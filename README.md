@@ -1,4 +1,4 @@
-# Alkaline 🧪
+# Alkaline--Site 🧪
 
 [Demo](https://alkaline-theme.xyz/)
 
@@ -16,7 +16,21 @@ Alkaline is an Astro-based theme that provides:
 - 📦 MDX support with syntax highlighting
 - 🎯 TypeScript & Tailwind included
 - 🍒 Statically generated with Astro, with a focus on developer experience and clean design
+- 🥇 Fully free, open source and MIT licensed
 
-⚠️Thanks for checking out the Alkaline demo. I'm still making some minor changes and finishing up the docs. All the components curretnly have JSDocs and TypeScript types. It should be easy to pick up and use if you are familiar with Astro and Tailwind. I hope to have the whole project wrapped up and ready for public consumption around 2025-01-24.
+🔍You can find the source code for Alkaline [here](https://github.com/TruJared/alkaline).
 
-you can find the source code [here](https://github.com/truared/Alkaline).
+## Getting Started
+
+Clone the repo, install dependencies, and run the dev server:
+```bash
+git clone https://github.com/TruJared/alkaline.git
+cd alkaline
+npm install
+npm run dev
+```
+
+## Todo
+
+- [ ] Docker support
+- [ ] Review intellisense for Astro

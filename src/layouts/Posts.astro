@@ -1,6 +1,4 @@
 ---
-// TODO: fix pagination
-
 import { COLLECTION_NAMES_LIST } from "src/alkaline.config";
 import { SITE } from "src/alkaline.config";
 import { Image } from "astro:assets";
@@ -12,8 +10,8 @@ import Heading from "@components/Astro/Heading.astro";
 import Author from "@components/Astro/Author.astro";
 
 interface Props {
-	posts: any; // TODO: type
-	page?: any; // TODO: type
+	posts: any;
+	page?: any;
 	collectionName: (typeof COLLECTION_NAMES_LIST)[number] | string | undefined;
 	title?: string | undefined;
 	description?: string;
@@ -34,19 +32,21 @@ const {
 } = Astro.props;
 
 const options = { "rounded-theme": true };
+
+const sortedPosts = posts?.sort(
+	(a:any, b:any) =>
+		new Date(b.data?.pubDatetime || 0).valueOf() -
+		new Date(a.data?.pubDatetime || 0).valueOf()
+);
 ---
 
 <Layout title={title} description={description} class={className}>
 	{subtitle && <Heading text={subtitle} showHeadingBackground />}
-	<section class="md:max-w-3xl md:mx-auto">
-		{
-			!posts?.length && (
-				<p class="text-theme-primary">No posts found.</p>
-			)
-		}
+	<section class="md:max-w-3xl md:mx-auto mt-0">
+		{!posts?.length && <p class="text-theme-primary">No posts found.</p>}
 		{
 			posts?.map((post: any) => (
-				<article class="mb-12" id={post.id}>
+				<article class="mb-10" id={post.id}>
 					<a
 						href={`/${post.collection || collectionName}/${post.id}`}
 						class="no-underline flex flex-row items-center mb-2 group"
@@ -69,12 +69,12 @@ const options = { "rounded-theme": true };
 						)}
 						<h2 class="">{post.data.title}</h2>
 					</a>
-					<div class="flex flex-wrap -mt-2 mb-5">
+					<div class="flex flex-wrap mt-0 mb-3">
 						{post.data.tags?.map((tag: string) => (
 							<Tag tag={tag} size="sm" />
 						))}
 					</div>
-					<p>
+					<p class="text-lg mb-2">
 						{post.data.description}{" "}
 						<a
 							href={`/${post.collection || collectionName}/${post.id}`}
@@ -85,24 +85,22 @@ const options = { "rounded-theme": true };
 					</p>
 					{post.data.modDatetime && (
 						<p class="text-theme-primary font-mono text-sm">
-							updated: {post.data.modDatetime?.toDateString()}
+							updated: {new Date(post.data.modDatetime).toLocaleString()}
 						</p>
 					)}
-					<p class="text-theme-primary font-mono text-sm">
+					<div class="border-l-4 border-theme-primary p-4 mb-3 ml-1 inline-block">
 						<Icon
 							name="ri:quill-pen-line"
 							size="16"
-							class="align-middle inline"
+							class="align-middle inline mr-0.5"
 						/>
-						Posted by{" "}
-						<blockquote>
-							<Author
-								authorId={post.data.authorId || ""}
-								pubDateTime={post.data.pubDatetime}
-								class="mt-2 -mb-3 ml-1 block font-mono not-italic"
-							/>
-						</blockquote>
-					</p>
+						Posted by:
+						<Author
+							authorId={post.data.authorId || ""}
+							pubDateTime={new Date(post.data.pubDatetime)}
+							class="ml-0.5 mt-2 inline font-mono not-italic"
+						/>
+					</div>
 				</article>
 			))
 		}

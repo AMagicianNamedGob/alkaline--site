@@ -23,17 +23,14 @@ const postCollectionSchema = {
 	isFeatured: z.boolean().optional(),
 	isDraft: z.boolean().optional(),
 	tags: z.array(z.string()).optional(),
-
 	canonicalURL: z.string().url().optional(),
 };
 
 // Advanced customization options //
-// These options are useful for granular customization of multiple collections //
-
+// These options are useful for granular customization of multiple collections or overriding the defaults above //
 
 let collectionSchemas: { [key: string]: any } = {};
 
-// use destructuring for overrides or to add additional fields
 // @ts-ignore
 collectionNames.forEach((collectionName) => {
 	collectionSchemas[collectionName] = defineCollection({
@@ -41,6 +38,7 @@ collectionNames.forEach((collectionName) => {
 		schema: ({ image }) => // allows for images in the frontmatter
 			z.object({
 				...postCollectionSchema,
+				// authorId: z.number().default(2), // example of overriding a default
 				cover: z.object({
 					src: image(),
 					alt: z.string().optional(),
@@ -48,22 +46,6 @@ collectionNames.forEach((collectionName) => {
 			}),
 	});
 	console.log("🚀 ~ collectionSchemas:", './src/data/' + collectionName.toLowerCase())
-	// * -- Example overrides -- * //
-
-	// * -- Add new field to all collections -- * //
-
-	// customField: z.string().optional(),
-
-	// * -- Override the default author for all collections -- * //
-
-	// author: z.string().optional(),
-
-	// * -- Override the default title for a single collection or multiple collections -- * //
-
-	// title: z
-	// 	.string()
-	// 	.default(collectionName === "blog" ? BLOG.title : DOCS.title)
-	// 	.optional(),
 });
 
 

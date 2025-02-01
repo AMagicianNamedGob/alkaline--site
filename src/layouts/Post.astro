@@ -38,9 +38,9 @@ const { Content } = await render(entry);
 <Layout
 	title={entry.data.title}
 	description={entry.data.description}
-
+	class="capitalize"
 >
-	<section>
+	<section class="mt-0 mb-2">
 		<article class:list={["prose", className]}>
 			{entry.data.subtitle && <p class="h2">{entry.data.subtitle}</p>}
 
@@ -49,9 +49,11 @@ const { Content } = await render(entry);
 					<Image
 						src={entry.data.cover.src}
 						alt={entry.data.cover.alt || entry.data.title}
-						class:list={["w-full h-auto max-h-50vh object-cover my-4", options]}
-						width={1200}
-						height={630}
+						class:list={[
+							"w-full h-auto max-h-[25rem] object-cover my-4",
+							options,
+						]}
+						width={600}
 					/>
 				)
 			}
@@ -62,13 +64,12 @@ const { Content } = await render(entry);
 			/>
 			{
 				entry.data.tags && (
-					<span class="flex items-baseline mt-6">
+					<span class="flex items-baseline -mt-4 mb-14">
 						<Tags tags={entry.data.tags} />
 					</span>
 				)
 			}
 
-			<div class="h-8"></div>
 			<Content />
 		</article>
 	</section>

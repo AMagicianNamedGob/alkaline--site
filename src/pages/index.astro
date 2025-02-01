@@ -11,33 +11,6 @@ import Bing from "@assets/bing.jpg";
 const description =
 	"Build modern websites in minutes with Alkaline - a low-dependency, framework-less, type-safe Astro starter kit. Featuring 14 unique color themes and more than 2 dozen pre-built Astro components, Alkaline is a great starting point for blogs, portfolios, e-commerce sites, and more.";
 
-const links = [
-	{
-		href: "/docs/start-here",
-		text: "Get Started",
-	},
-	{
-		href: "/docs/configuration",
-		text: "Configuration",
-	},
-	{
-		href: "/docs/components",
-		text: "Components",
-	},
-	{
-		href: "/docs/themes",
-		text: "Themes",
-	},
-	{
-		href: "/docs/design-system",
-		text: "Design System",
-	},
-	{
-		href: "/docs/about-alkaline",
-		text: "About Alkaline",
-	},
-];
-
 const options = {
 	"rounded-theme": true,
 };
@@ -50,15 +23,14 @@ const options = {
 		image={coverImage}
 		imageAlt="Alkaline theme preview showcasing clean and modern design"
 		backgroundPattern="M20.3 29.35l-3.1-3.2-3.55 3.55-3.55-3.55 3.55-3.55 3.55 3.55L31.35 12 27.8 8.45l-3.55 3.55 3.55 3.55L30.9 18.65l-3.35 3.6L20.75 15.55l3.55-3.55L17.2 4.95 20.7 1.3l3.55 3.6L20.75 8.45 17.2 12l-7.45-7.45L13.35.9l3.85 4.05-3.55 3.55-3.55 3.55 3.55 3.55-3.55 3.55-3.55-3.55-3.9-3.9 3.55-3.55L13.65 15.55l-3.55-3.55L3.05 19.1l3.55 3.55L13.65 15.55l-3.55 3.55 3.55 3.55 3.55-3.55L23.75 25.8l.05.05-3.5 3.5"
-		patternOpacity={0.25}
 		animate={true}
 	/>
 	<section
-		class="mx-0 w-full flex flex-row flex-wrap justify-center gap-4 mt-8 mb-16 md:gap-12 lg:justify-evenly  build-in"
+		class="mx-0 w-full flex flex-row flex-wrap-reverse justify-center gap-4 mt-14 mb-16 lg:mt-0 lg:justify-between lg:flex-nowrap lg:p-5 build-in"
 	>
 		<Card
 			title="Configure"
-			description="Single config file, TypeScript support, and pre-built components for rapid development."
+			description="Unlock endless possibilities with our intuitive configuration system. Effortlessly customize every aspect of your theme to create a unique and personalized web experience."
 			shadowSize="lg"
 			name="ri:settings-3-line"
 		/>
@@ -76,7 +48,7 @@ const options = {
 		/>
 	</section>
 
-	<section class="flex flex-col items-center justify-center mt-16 fade-in">
+	<section class="flex flex-col items-center justify-center mt-6 mb-48 fade-in">
 		<h2
 			class:list={[
 				"bg-theme-secondary text-theme-secondary p-5  text-center uppercase w-full mb-8 lg:w-auto ",
@@ -91,14 +63,14 @@ const options = {
 			If your package.json looks like a phone book (remember those?) and your
 			build process requires a small server farm, you might be a web developer.
 			Alkaline brings back the simplicity without sacrificing the power, because
-			working hard is overrated.
+			hard work is overrated.
 		</p>
-		<Link href="/docs" class="btn btn-primary mt-6" text="View Documentation" />
+		<!-- <Link href="/docs" class="btn btn-primary mt-6" text="View Documentation" /> -->
 	</section>
 
 	<section
 		id="Features"
-		class="mx-0 w-full flex flex-row flex-wrap justify-center gap-4 mt-48mb-16 md:gap-12 lg:justify-evenly build-in"
+		class="mx-0 w-full flex flex-row flex-wrap-reverse justify-center gap-4 mt-8 mb-16 lg:justify-between lg:flex-nowrap lg:p-5 build-in"
 	>
 		<Card
 			title="Fast"
@@ -139,27 +111,28 @@ const options = {
 			move fast and build things that last.
 		</p>
 
-		<Link
-			href="https://github.com/jaredmakes/alkaline"
+		<!-- <Link
+			href="https://github.com/TruJared/alkaline--site"
 			class="btn btn-primary mt-6"
 			text="View on GitHub"
-		/>
+		/> -->
 	</section>
 
 	<section class="flex flex-col items-center justify-center mb-32 mt-12">
-		<Image
-			src={Bing}
-			alt="a quote from Chandler Bing from Friends. Hard work never killed anybody, but why take a chance?"
-			class:list={["shadow-md shadow-theme-primary", options]}
-			loading="lazy"
-			width={750}
-			height={500}
-			format="webp"
-		/>
+		<div class="w-full mb-8 flex justify-center">
+			<Image
+				src={Bing}
+				alt="a quote from Chandler Bing from Friends. Hard work never killed anybody, but why take a chance?"
+				class:list={["shadow-md shadow-theme-primary", options]}
+				loading="lazy"
+				width={750}
+				format="webp"
+			/>
+		</div>
 
 		<h2
 			class:list={[
-				"bg-theme-primary text-theme-primary p-5 text-center uppercase mt-12 lg:w-auto h3",
+				"bg-theme-primary text-theme-primary p-5 text-center uppercase lg:w-auto",
 				options,
 			]}
 		>
@@ -168,23 +141,18 @@ const options = {
 		<div
 			class="flex flex-wrap gap-4 sm:gap-6 md:gap-8 lg:gap-10 mt-2 justify-center"
 		>
-			{
-				links.map((link) => (
-					<Link
-						href={link.href}
-						class="btn btn-primary mt-2"
-						text={link.text}
-					/>
-				))
-			}
+			<Link
+				href="https://github.com/TruJared/alkaline"
+				text="Get It On GitHub"
+				class="p-4 bg-theme-primary text-theme-primary hover:bg-theme-secondary hover:text-theme-secondary no-underline rounded-lg shadow-md transition-all duration-300"
+			/>
 		</div>
 	</section>
 </Layout>
 
 <style>
 	.build-in {
+		/* renamed from .build-in */
 		animation-delay: 0.75s;
 	}
 </style>
-
-<script></script>

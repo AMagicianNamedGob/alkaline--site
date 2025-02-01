@@ -5,6 +5,7 @@ import type { ContentEntryMap } from "astro:content";
 
 import { getCollection } from "astro:content";
 import Posts from "@layouts/Posts.astro";
+import Tag from "@components/Astro/utils/Tag.astro";
 
 type Post = {
   data: {
@@ -48,7 +49,7 @@ const posts = page?.data ?? [];
 <Posts
   posts={posts}
   page={page}
-  subtitle={`Showing all posts for ${tag}`}
+  subtitle={`${tag}`}
   collectionName={tag}
-  title={tag?.toUpperCase()}
+  title='Posts By Tag'
 />

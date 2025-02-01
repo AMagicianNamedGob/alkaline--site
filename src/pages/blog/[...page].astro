@@ -10,7 +10,7 @@ export async function getStaticPaths({
 }: {
 	paginate: PaginateFunction;
 }) {
-	const posts = await getCollection("docs");
+	const posts = await getCollection("blog");
 	return paginate(posts, {
 		pageSize: SITE.postsPerPage,
 	});
@@ -24,8 +24,6 @@ const posts = page?.data ?? [];
 	posts={posts}
 	page={page}
 	subtitle="Documentation"
-	collectionName="docs"
-	title="Documentation"
+	collectionName="blog"
+	title="Blog"
 />
-
-<Pagination page={page} />

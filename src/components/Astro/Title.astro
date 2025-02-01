@@ -34,11 +34,13 @@ interface Props {
 	showTitleBackground: boolean;
 	// Optional path to logo image //
 	logoImg?: ImageMetadata;
+	// force logo on mobile //
+	forceLogoOnMobile?: boolean;
 	// Optional CSS classes //
 	class?: string | undefined;
 }
 
-const { title, showTitleBackground, class: className, logoImg } = Astro.props;
+const { title, showTitleBackground, class: className, logoImg, forceLogoOnMobile } = Astro.props;
 
 const options = {
 	"rounded-theme": true,
@@ -72,7 +74,8 @@ const options = {
 			{
 				logoImg && (
 					<span class="flex items-center justify-center w-full">
-						<span class="rounded-full border-2 border-theme-primary mr-6 overflow-hidden hidden md:block">
+						<span class:list={["rounded-full border-2 border-theme-primary overflow-hidden ml-4 sm:inline-block sm:mr-6 sm:ml-0",
+							{ "hidden": !forceLogoOnMobile },]}>
 							<Image src={logoImg} alt="Logo" width={64} height={64} class="w-full" />
 						</span>
 						{title}

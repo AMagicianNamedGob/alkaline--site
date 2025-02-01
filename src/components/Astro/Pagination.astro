@@ -32,6 +32,8 @@
  * - Responsive layout
  */
 
+import Link from "@components/Astro/Link.astro";
+
 interface Props {
 	// Page object containing navigation and current page info //
 	page: {
@@ -53,17 +55,19 @@ const { next, prev } = url;
 ---
 
 <nav class:list={["flex justify-start items-center", className]}>
-	<a href={prev} class:list={["text-theme-primary p-2", { disabled: !prev }]}>
-		{" "}
-		← Previous{" "}
-	</a>
+	<Link
+		href={prev || "#"}
+		text="← Previous"
+		class:list={["text-theme-primary p-2", { disabled: !prev }]}
+	/>
+		<span class="px-2">
+			Page {currentPage} of {lastPage}
+		</span>
 
-	<span class="px-2">
-		Page {currentPage} of {lastPage}
-	</span>
+		<Link
+			href={next || "#"}
+			text="Next →"
+			class:list={["text-theme-primary p-2", { disabled: !next }]}
+		/>
 
-	<a href={next} class:list={["text-theme-primary p-2", { disabled: !next }]}>
-		{" "}
-		Next →{" "}
-	</a>
 </nav>

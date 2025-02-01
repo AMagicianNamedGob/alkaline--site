@@ -32,7 +32,7 @@ const sortedTags = Object.entries(tagCounts)
 
 <Layout title="Tags">
 	<Heading text="Get Entries by Tag" />
-	<section>
-		<TagCloud tags={sortedTags} />
+	<section >
+		<TagCloud tags={sortedTags} class="flex flex-row flex-wrap-reverse justify-start sm:justify-center md:items-center md:justify-center w-full" />
 	</section>
 </Layout>

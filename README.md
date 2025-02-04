@@ -1,6 +1,5 @@
 # Alkaline--Site 🧪
-
-[Demo](https://alkaline-theme.xyz/)
+This is the [Demo](https://alkaline-theme.xyz/) for the [Alkaline Astro theme](https://github.com/TruJared/alkaline).
 
 A neutral base for your next creation - Alkaline is a modern Astro theme focused on developer experience and clean design.
 
@@ -29,8 +28,3 @@ cd alkaline
 npm install
 npm run dev
 ```
-
-## Todo
-
-- [ ] Docker support
-- [ ] Review intellisense for Astro

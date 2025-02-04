@@ -5,6 +5,8 @@ import Card from "@components/Astro/Card.astro";
 import coverImage from "@assets/alk-cover-2.webp";
 import Link from "@components/Astro/Link.astro";
 
+import { Icon } from "astro-icon/components";
+
 import { Image } from "astro:assets";
 import Bing from "@assets/bing.jpg";
 
@@ -32,33 +34,33 @@ const options = {
 			title="Configure"
 			description="Unlock endless possibilities with our intuitive configuration system. Effortlessly customize every aspect of your theme to create a unique and personalized web experience."
 			shadowSize="lg"
-			name="ri:settings-3-line"
+			iconName="ri:settings-3-line"
 		/>
 		<Card
 			title="Connect"
 			description="Built on pure Astro - add frameworks only when you need them. Ship less JavaScript by default."
 			shadowSize="lg"
-			name="ri:puzzle-2-line"
+			iconName="ri:puzzle-2-line"
 		/>
 		<Card
 			title="Customize"
 			description="14 unique themes with consistent design patterns and extensive customization options."
 			shadowSize="lg"
-			name="ri:cake-3-line"
+			iconName="ri:cake-3-line"
 		/>
 	</section>
 
 	<section class="flex flex-col items-center justify-center mt-6 mb-48 fade-in">
 		<h2
 			class:list={[
-				"bg-theme-secondary text-theme-secondary p-5  text-center uppercase w-full mb-8 lg:w-auto ",
+				"bg-theme-secondary text-theme-secondary p-5 text-center uppercase w-full mb-8 lg:w-auto ",
 				options,
 			]}
 		>
 			Work Easy
 		</h2>
 		<p
-			class="text-2xl max-w-7xl leading-relaxed text-center md:max-w-screen-lg"
+			class="text-xl max-w-6xl leading-relaxed text-center md:max-w-screen-lg lg:text-2xl lg:leading-relaxed"
 		>
 			If your package.json looks like a phone book (remember those?) and your
 			build process requires a small server farm, you might be a web developer.
@@ -76,40 +78,57 @@ const options = {
 			title="Fast"
 			description="Experience blazing speed with Alkaline, optimized for performance and capable of achieving perfect scores on Lighthouse."
 			shadowSize="lg"
-			name="ri:rocket-2-line"
+			iconName="ri:rocket-2-line"
 		/>
 		<Card
 			title="Flexible"
 			description="Leverage Astro's capabilities to build without needing a JavaScript framework. Optionally, add one or multiple frameworks if desired."
 			shadowSize="lg"
-			name="ri:code-s-slash-line"
+			iconName="ri:code-s-slash-line"
 		/>
 		<Card
 			title="Free"
 			description="What's mine is yours - Alkaline is open-source and MIT licensed."
 			shadowSize="lg"
-			name="ri:open-source-line"
+			iconName="ri:open-source-line"
 		/>
 	</section>
 
 	<section
-		class="flex flex-col items-center justify-center mb-48 mt-16 fade-in"
+		class="flex flex-col items-center justify-center mt-16 mb-0 fade-in"
 	>
 		<h2
 			class:list={[
-				"bg-theme-secondary text-theme-secondary p-5 text-center uppercase mb-8 lg:w-auto ",
+				"bg-theme-secondary text-theme-secondary p-5 text-center  mb-8 lg:w-auto ",
 				options,
 			]}
 		>
 			Created For You
 		</h2>
 		<p
-			class="text-2xl max-w-7xl leading-relaxed text-center md:max-w-screen-lg"
+			class="text-2xl max-w-6xl leading-relaxed text-center md:max-w-screen-lg lg:text-2xl lg:leading-relaxed tracking-wide mt-6 mb-12"
 		>
 			Your tools should be accessible, not intimidating. Whether you're building
 			your first blog or your next startup, Alkaline gives you the foundation to
 			move fast and build things that last.
 		</p>
+		<a
+			href="https://github.com/TruJared/alkaline"
+			class="no-underline group group-hover:cursor-pointer"
+		>
+			<div
+				class:list={[
+					"text-xl tracking-wide bg-theme-primary text-theme-primary text-center shadow-sm shadow-theme-primary border-2 mt-48 mb-4 group-hover:bg-theme-secondary group-hover:text-theme-accent group-hover:shadow-none transition-all duration-300 ease-in-out lg:text-2xl lg:tracking-wider",
+					options,
+				]}
+			>
+				<div class="mt-0">
+					<Icon name="ri:github-fill" size="sm" class="mb-5" />
+					<p class="p-4 group-hover:text-theme-accent">Get It On GitHub</p>
+				</div>
+				<!-- Get Started Today -->
+			</div>
+		</a>
 
 		<!-- <Link
 			href="https://github.com/TruJared/alkaline--site"
@@ -118,7 +137,7 @@ const options = {
 		/> -->
 	</section>
 
-	<section class="flex flex-col items-center justify-center mb-32 mt-12">
+	<section class="flex flex-col items-center justify-center mt-6">
 		<div class="w-full mb-8 flex justify-center">
 			<Image
 				src={Bing}
@@ -127,24 +146,6 @@ const options = {
 				loading="lazy"
 				width={750}
 				format="webp"
-			/>
-		</div>
-
-		<h2
-			class:list={[
-				"bg-theme-primary text-theme-primary p-5 text-center uppercase lg:w-auto",
-				options,
-			]}
-		>
-			Get Started Today
-		</h2>
-		<div
-			class="flex flex-wrap gap-4 sm:gap-6 md:gap-8 lg:gap-10 mt-2 justify-center"
-		>
-			<Link
-				href="https://github.com/TruJared/alkaline"
-				text="Get It On GitHub"
-				class="p-4 bg-theme-primary text-theme-primary hover:bg-theme-secondary hover:text-theme-secondary no-underline rounded-lg shadow-md transition-all duration-300"
 			/>
 		</div>
 	</section>

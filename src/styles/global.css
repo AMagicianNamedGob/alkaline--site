@@ -295,14 +295,3 @@
 		@apply pointer-events-none opacity-50 no-underline;
 	}
 }
-
-/* Utility classes for spacing adjustments */
-.no-margin {
-	margin: 0;
-}
-.no-padding {
-	padding: 0;
-}
-.stack > * + * {
-	margin-block-start: 1rem;
-} /* Stack items with consistent spacing */

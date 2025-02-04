@@ -37,7 +37,7 @@ interface Props {
 	// Use alternate color scheme //
 	alt?: boolean;
 	// Optional icon source name i.e  ri:star //
-	name?: string;
+	iconName?: string;
 	// Optional left/right icon alignment //
 	alignIcon?: "left" | "right" | null;
 	// Shadow size variant //
@@ -50,7 +50,7 @@ const {
 	title,
 	description,
 	alt = false,
-	name: iconName = null,
+	iconName: iconName = null,
 	alignIcon = "left",
 	shadowSize = "sm",
 	class: className,

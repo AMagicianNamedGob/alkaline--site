@@ -15,23 +15,15 @@ import type { Site, Author, Socials, NavEntry, Blog } from "./Types/types";
 export const socials: Socials[] = [
 	{
 		platform: "email",
-		url: "alkaline@jaredtruscott.com",
+		url: "hello@jaredtruscott.com",
 	},
 	{
 		platform: "github",
-		url: "https://github.com/TruJared/",
+		url: "https://github.com/AMagicianNamedGob/",
 	},
 	{
 		platform: "web",
-		url: "https://jaredmakes.com",
-	},
-	{
-		platform: "bluesky",
-		url: "https://bsky.app/profile/trujared.bsky.social",
-	},
-	{
-		platform: "rss",
-		url: "/feed.xml",
+		url: "https://jaredtruscott.com",
 	},
 ];
 

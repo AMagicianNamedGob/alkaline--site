@@ -32,7 +32,7 @@ export const socials: Socials[] = [
 	{
 		platform: "rss",
 		url: "/feed.xml",
-	}
+	},
 ];
 
 // use in development to easily see all author socials at once, comment out in production
@@ -73,13 +73,13 @@ export const SITE: Site = {
 	locale: "en_US",
 	postsPerPage: 5,
 	shikiConfig: {
-		theme: "github-dark",
+		theme: "plastic"
 	},
 	// * edit or remove ./Types/google-fonts.d.ts to add/remove font types * //
 	fonts: [
 		{
 			typeface: "serif",
-			fontFamily: "SUSE",
+			fontFamily: "Montserrat",
 			fontWeights: ["100..800"],
 		},
 		{
@@ -90,7 +90,7 @@ export const SITE: Site = {
 		},
 		{
 			typeface: "mono",
-			fontFamily: "Fira Code",
+			fontFamily: "Space Mono",
 			fontWeights: [400, 500, 700],
 		},
 	],

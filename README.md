@@ -1,5 +1,6 @@
 # Alkaline--Site 🧪
-This is the [Demo](https://alkaline-theme.xyz/) for the [Alkaline Astro theme](https://github.com/TruJared/alkaline).
+
+This is the [Demo](https://alkaline-theme.vercel.app/) for the [Alkaline Astro theme](https://github.com/TruJared/alkaline).
 
 A neutral base for your next creation - Alkaline is a modern Astro theme focused on developer experience and clean design.
 
@@ -17,14 +18,4 @@ Alkaline is an Astro-based theme that provides:
 - 🍒 Statically generated with Astro, with a focus on developer experience and clean design
 - 🥇 Fully free, open source and MIT licensed
 
-🔍You can find the source code for Alkaline [here](https://github.com/TruJared/alkaline).
-
-## Getting Started
-
-Clone the repo, install dependencies, and run the dev server:
-```bash
-git clone https://github.com/TruJared/alkaline.git
-cd alkaline
-npm install
-npm run dev
-```
+🔍You can find the source code for Alkaline [at the Alkaline repo](https://github.com/AMagicianNamedGob/alkaline).

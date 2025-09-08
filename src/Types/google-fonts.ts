@@ -4,6 +4,7 @@
  * 'There probably was a better way to do this'
  */
 
+// cspell:disable
 export type GoogleFontFamily =
 	| "Abril Fatface"
 	| "Acme"

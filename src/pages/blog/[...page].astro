@@ -6,14 +6,14 @@ import Posts from "@layouts/Posts.astro";
 import Pagination from "@components/Astro/Pagination.astro";
 
 export async function getStaticPaths({
-	paginate,
+  paginate,
 }: {
-	paginate: PaginateFunction;
+  paginate: PaginateFunction;
 }) {
-	const posts = await getCollection("blog");
-	return paginate(posts, {
-		pageSize: SITE.postsPerPage,
-	});
+  const posts = await getCollection("blog");
+  return paginate(posts, {
+    pageSize: SITE.postsPerPage,
+  });
 }
 
 const { page } = Astro.props;
@@ -21,9 +21,9 @@ const posts = page?.data ?? [];
 ---
 
 <Posts
-	posts={posts}
-	page={page}
-	subtitle="Documentation"
-	collectionName="blog"
-	title="Blog"
+  posts={posts}
+  page={page}
+  subtitle="Blog Examples"
+  collectionName="blog"
+  title="Blog"
 />

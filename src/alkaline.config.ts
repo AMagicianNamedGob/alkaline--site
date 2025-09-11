@@ -41,7 +41,7 @@ export const AUTHORS: Author[] = [
 		id: 1,
 		name: "Jared Truscott",
 		socials: socials,
-		email: 'jared@jaredmakes.com'
+		// email: 'hello@jaredtruscott.com'
 	},
 	{
 		id: 2,
@@ -55,7 +55,7 @@ export const SITE: Site = {
 	title: "Alkaline",
 	showTitleBackground: true,
 	faviconSrc: "/favicon.png", // in public directory
-	url: "https://alkaline-site.vercel.app",
+	url: "https://alkaline-site.com",
 	ogImage: "/og-image.webp", // in public directory
 	author: AUTHORS[0].name, // Made with ❤️ by {your-name}
 	description: "A Neutral Base For Your Next Creation",

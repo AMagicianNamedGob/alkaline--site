@@ -1,6 +1,6 @@
 # Alkaline--Site 🧪
 
-This is the [Demo](https://alkaline-theme.vercel.app/) for the [Alkaline Astro theme](https://github.com/TruJared/alkaline).
+This is the [Demo](https://alkaline-site.com/) for the [Alkaline Astro theme](https://github.com/TruJared/alkaline).
 
 A neutral base for your next creation - Alkaline is a modern Astro theme focused on developer experience and clean design.
 
